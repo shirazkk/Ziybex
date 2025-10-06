@@ -68,7 +68,7 @@ export const FeaturedProjects = () => {
           className="text-center"
         >
           <Link href="/projects">
-            <Button size="lg" className="gap-2 group">
+            <Button size="lg" className="gap-2 group bg-accent hover:bg-accent/90 text-accent-foreground glow-accent">
               View All Projects
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Button>

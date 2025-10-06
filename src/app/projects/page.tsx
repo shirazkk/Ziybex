@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { ProjectCard } from "@/components/projectcard";
@@ -92,7 +92,7 @@ const Projects = () => {
               <h2 className="text-2xl md:text-3xl font-bold mb-4">
                 Like what you see?
               </h2>
-            <p className="text-muted-foreground mb-6">
+              <p className="text-muted-foreground mb-6">
                 I&apos;m available for freelance projects and full-time
                 opportunities. Let&apos;s create something amazing together!
               </p>
@@ -102,7 +102,10 @@ const Projects = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Button size="lg" className="w-full sm:w-auto gap-2">
+                  <Button
+                    size="lg"
+                    className="w-full sm:w-auto gap-2 bg-accent hover:bg-accent/90 text-accent-foreground glow-accent"
+                  >
                     View Full Portfolio
                     <ExternalLink className="w-4 h-4" />
                   </Button>
