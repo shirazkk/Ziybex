@@ -42,23 +42,23 @@ export const ProjectCard = ({ project, index }: ProjectCardProps) => {
       </div>
 
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300" />
 
       {/* Content */}
       <div className="relative h-full flex flex-col justify-end p-6">
         <div className="transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-          <div className="text-sm font-medium text-accent mb-2">
+          <div className="text-sm font-medium text-white/80 mb-2">
             {project.category}
           </div>
-          <h3 className="text-xl md:text-2xl font-bold text-foreground mb-2">
+          <h3 className="text-xl md:text-2xl font-bold text-white mb-2">
             {project.title}
           </h3>
-          <p className="text-muted-foreground text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 mb-4">
+          <p className="text-white/70 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 mb-4">
             {project.description}
           </p>
 
           {/* Stats */}
-          <div className="flex items-center gap-4 text-sm text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <div className="flex items-center gap-4 text-sm text-white/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <div className="flex items-center gap-1">
               <Heart className="w-4 h-4" />
               <span>{project.appreciations}</span>

@@ -32,7 +32,8 @@ const About = () => {
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <Image
                 src="/about-image.jpg"
-                fill
+                width={300}
+                height={300}
                 alt="Ziybex team collaboration"
                 className="w-full h-auto"
               />

@@ -7,7 +7,7 @@ const VideoSection = () => {
         <div className="rounded-2xl overflow-hidden shadow-lg border border-border bg-background/90 backdrop-blur-md flex justify-center">
           <video
             className="w-full h-[500px] object-cover"
-            src="/Ziybex_Solutions.mp4" // Replace with your video path
+            src="/Ziybex_Solutions.mp4"
             autoPlay
             loop
             muted

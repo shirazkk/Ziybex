@@ -1,0 +1,13 @@
+# *
+User-agent: *
+Allow: /
+
+# *
+User-agent: *
+Disallow: /studio
+
+# Host
+Host: https://ziybex.com
+
+# Sitemaps
+Sitemap: https://ziybex.com/sitemap.xml
