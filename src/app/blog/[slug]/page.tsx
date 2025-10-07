@@ -1,17 +1,15 @@
 import { notFound } from "next/navigation";
-import { getAllBlogs, getBlogBySlug } from "@/data/blogs";
+import { postBySlugQuery } from "@/sanity/queries";
 import ClientBlogDetail from "./ClientBlogDetail";
+import { client } from "@/sanity/lib/client";
 
-type Params = { params: Promise<{ slug: string }> };
-
-export async function generateStaticParams() {
-  const posts = getAllBlogs();
-  return posts.map((p) => ({ slug: p.slug }));
-}
-
-export default async function Page({ params }: Params) {
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const { slug } = await params;
-  const post = getBlogBySlug(slug);
+  const post = await client.fetch(postBySlugQuery, { slug });
   if (!post) return notFound();
   return <ClientBlogDetail post={post} />;
 }

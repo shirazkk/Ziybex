@@ -1,11 +1,26 @@
 "use client"
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { getAllBlogs } from "@/data/blogs";
+import { allPostsQuery } from "@/sanity/queries";
+import type { BlogListPost } from "@/data/type";
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import { urlFor } from "@/sanity/lib/image";
+import { client } from "@/sanity/lib/client";
 
 export default function BlogIndexPage() {
-  const posts = getAllBlogs();
+  const [posts, setPosts] = useState<BlogListPost[]>([]);
+  useEffect(() => {
+    async function fetchBlogs() {
+      try {
+        const res = await client.fetch<BlogListPost[]>(allPostsQuery);
+        setPosts(res || []);
+      } catch (error) {
+        console.error("Error fetching blogs:", error);
+      }
+    }
+    fetchBlogs();
+  }, []);
 
   return (
     <div className="container mx-auto px-4 md:px-0 py-16 md:py-24">
@@ -32,13 +47,15 @@ export default function BlogIndexPage() {
           >
             <Link href={`/blog/${post.slug}`} className="block">
               <div className="relative aspect-[16/10] overflow-hidden">
-                <Image
-                  src={post.image}
-                  alt={post.title}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                />
+                {post.mainImage && (
+                  <Image
+                    src={urlFor(post.mainImage).url()}
+                    fill
+                    alt={post.title}
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                  />
+                )}
               </div>
               <div className="p-4">
                 <h3 className="text-lg md:text-xl font-semibold line-clamp-2">{post.title}</h3>
@@ -46,7 +63,7 @@ export default function BlogIndexPage() {
                   {post.shortDescription}
                 </p>
                 <div className="text-xs text-muted-foreground mt-2">
-                  {new Date(post.date).toLocaleDateString()}
+                  {new Date(post.publishedAt).toLocaleDateString()}
                 </div>
                 <div className="mt-4 inline-flex items-center text-accent hover:underline">
                   Read More

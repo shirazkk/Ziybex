@@ -11,10 +11,5 @@ module.exports = {
       { userAgent: '*', allow: '/' },
       { userAgent: '*', disallow: ['/studio'] },
     ],
-    additionalSitemaps: [
-      'https://ziybex.com/sitemap.xml',
-    ],
   },
 };
-
-

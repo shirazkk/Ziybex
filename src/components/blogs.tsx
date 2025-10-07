@@ -1,9 +1,14 @@
 "use client";
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { motion } from "framer-motion";
-import { getLatestBlogs } from "@/data/blogs";
 import { Button } from "@/components/ui/button";
+import { latestPostsQuery } from "@/sanity/queries";
+import Image from "next/image";
+import { urlFor } from "@/sanity/lib/image";
+import { client } from "@/sanity/lib/client";
+import type { BlogListPost } from "@/data/type";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -20,7 +25,20 @@ const cardVariants = {
 };
 
 export default function BlogsSection() {
-  const latest = getLatestBlogs(4);
+  const [latest, setLatest] = useState<BlogListPost[]>([]);
+
+  // Fetching blogs
+  useEffect(() => {
+    async function fetchBlogs() {
+      try {
+        const res = await client.fetch<BlogListPost[]>(latestPostsQuery);
+        setLatest(res || []);
+      } catch (error) {
+        console.error("Error fetching blogs:", error);
+      }
+    }
+    fetchBlogs();
+  }, []);
 
   return (
     <section
@@ -45,7 +63,7 @@ export default function BlogsSection() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mt-10">
         {latest.map((post, idx) => (
           <motion.article
-            key={post.slug}
+            key={post._id}
             custom={idx}
             variants={cardVariants}
             initial="hidden"
@@ -56,13 +74,15 @@ export default function BlogsSection() {
           >
             <Link href={`/blog/${post.slug}`} className="block">
               <div className="relative aspect-[16/10] overflow-hidden">
-                <Image
-                  src={post.image}
-                  alt={post.title}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-                />
+                {post.mainImage && (
+                  <Image
+                    src={urlFor(post.mainImage).url()}
+                    fill
+                    alt={post.title}
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                  />
+                )}
               </div>
               <div className="p-4">
                 <h3 className="text-lg md:text-xl font-semibold line-clamp-2">
@@ -84,7 +104,7 @@ export default function BlogsSection() {
         <Button
           size="lg"
           asChild
-          className=" bg-accent hover:bg-accent/90 text-accent-foreground"
+          className="bg-accent hover:bg-accent/90 text-accent-foreground"
         >
           <Link href="/blog">All Blogs</Link>
         </Button>

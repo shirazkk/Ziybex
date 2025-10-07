@@ -1,203 +1,107 @@
-"use client";
-
+import { PortableText } from "@portabletext/react";
+import type { TypedObject } from "@portabletext/types";
+import { Calendar, User } from "lucide-react";
+import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
-import Link from "next/link";
-import type { Blog } from "@/data/blogs";
-import { getAllBlogs } from "@/data/blogs";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-import { FaFacebook, FaLinkedin, FaCopy } from "react-icons/fa";
-import { FaSquareXTwitter } from "react-icons/fa6";
-import { Button } from "@/components/ui/button";
+import { urlFor } from "@/sanity/lib/image";
+import type { BlogDetailPost } from "@/data/type";
 
-export default function ClientBlogDetail({ post }: { post: Blog }) {
-  const allPosts = getAllBlogs();
-  const currentIndex = allPosts.findIndex((p) => p.slug === post.slug);
-  const prevPost =
-    currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : undefined;
-  const nextPost = currentIndex > 0 ? allPosts[currentIndex - 1] : undefined;
+export default function BlogDetail({ post }: { post: BlogDetailPost }) {
+  // Helper function to format date
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return new Intl.DateTimeFormat("en-US", {
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    }).format(date);
+  };
 
-  const shareUrl = typeof window !== "undefined" ? window.location.href : "";
+  const authorName: string =
+    typeof post.author === "string" ? post.author : post.author?.name ?? "Unknown";
+  const content: TypedObject[] = Array.isArray(post.content) ? post.content : [];
 
   return (
-    <article className="container mx-auto px-4 md:px-10 py-16 md:py-24">
-      <div>
-        <div>
-          <nav className="text-sm text-muted-foreground">
-            <Link href="/" className="hover:underline">
-              Home
-            </Link>
-            <span className="mx-2">/</span>
-            <Link href="/blog" className="hover:underline">
-              Blog
-            </Link>
-            <span className="mx-2">/</span>
-            <span className="text-foreground">{post.title}</span>
-          </nav>
+    <article className="min-h-screen bg-background">
+      {/* Hero Section with gradient background */}
+      <div className="relative bg-gradient-to-b from-blog-accent-subtle to-background">
+        <div className="container mx-auto px-4 md:px-6 pt-16 md:pt-24 pb-8 md:pb-12">
+          <div className="max-w-4xl mx-auto">
+            {/* Category badge - decorative element */}
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 mb-6">
+              <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+              <span className="text-xs font-medium text-primary uppercase tracking-wider">
+                Featured Article
+              </span>
+            </div>
 
-          <h1 className="text-balance text-3xl md:text-5xl font-semibold tracking-tight mt-3">
-            {post.title}
-          </h1>
+            {/* Title */}
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-tight mb-8">
+              {post.title}
+            </h1>
 
-          <div className="mt-3 flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
-            <span>By Ziybex Team</span>
-            <span>•</span>
-            <span>{new Date(post.date).toLocaleDateString()}</span>
-          </div>
-
-          <div className="relative aspect-[16/6] mt-6 rounded-xl overflow-hidden border">
-            <Image
-              src={
-                post.image ||
-                "/placeholder.svg?height=480&width=854&query=featured%20blog%20image"
-              }
-              alt={post.title}
-              fill
-              className="object-cover w-[200px] h-[200px]"
-            />
-          </div>
-
-          <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-b pb-6">
-            <div className="flex items-center gap-3">
-              <span className="text-sm text-muted-foreground">Share:</span>
-              <TooltipProvider>
-                <div className="flex items-center gap-2">
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <Link
-                        href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`}
-                        target="_blank"
-                        aria-label="Share on Facebook"
-                        className="inline-flex h-9 w-9 items-center justify-center rounded-full border bg-background hover:bg-accent hover:text-accent-foreground transition-colors"
-                      >
-                        {/* Facebook */}
-                        <FaFacebook />
-                      </Link>
-                    </TooltipTrigger>
-                    <TooltipContent>Facebook</TooltipContent>
-                  </Tooltip>
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <Link
-                        href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(post.title)}`}
-                        target="_blank"
-                        aria-label="Share on X"
-                        className="inline-flex h-9 w-9 items-center justify-center rounded-full border bg-background hover:bg-accent hover:text-accent-foreground transition-colors"
-                      >
-                        {/* X/Twitter */}
-                        <FaSquareXTwitter />
-                      </Link>
-                    </TooltipTrigger>
-                    <TooltipContent>X</TooltipContent>
-                  </Tooltip>
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <Link
-                        href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(shareUrl)}&title=${encodeURIComponent(post.title)}`}
-                        target="_blank"
-                        aria-label="Share on LinkedIn"
-                        className="inline-flex h-9 w-9 items-center justify-center rounded-full border bg-background hover:bg-accent hover:text-accent-foreground transition-colors"
-                      >
-                        {/* LinkedIn */}
-                        <FaLinkedin />
-                      </Link>
-                    </TooltipTrigger>
-                    <TooltipContent>LinkedIn</TooltipContent>
-                  </Tooltip>
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <Button
-                        type="button"
-                        variant="ghost"
-                        aria-label="Copy link"
-                        onClick={() => {
-                          if (
-                            typeof navigator !== "undefined" &&
-                            navigator.clipboard
-                          ) {
-                            navigator.clipboard.writeText(shareUrl);
-                          }
-                        }}
-                        className="inline-flex h-9 w-9 items-center justify-center rounded-full border bg-background hover:bg-accent hover:text-accent-foreground transition-colors"
-                      >
-                        {/* Link */}
-                        <FaCopy />
-                      </Button>
-                    </TooltipTrigger>
-                    <TooltipContent>Copy link</TooltipContent>
-                  </Tooltip>
+            {/* Metadata */}
+            <div className="flex flex-wrap items-center gap-6 text-sm text-muted-foreground">
+              <div className="flex items-center gap-2">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
+                  <User className="w-5 h-5 text-primary" />
                 </div>
-              </TooltipProvider>
+                <div>
+                  <div className="font-medium text-foreground">{authorName}</div>
+                  <div className="text-xs">Author</div>
+                </div>
+              </div>
+
+              <Separator orientation="vertical" className="h-10" />
+
+              <div className="flex items-center gap-2">
+                <Calendar className="w-4 h-4" />
+                <span className="font-medium">
+                  {formatDate(post.publishedAt)}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Content */}
+      <div className="container mx-auto px-4 md:px-6 py-8 md:py-12">
+        <div className="max-w-4xl mx-auto">
+          {/* Featured Image */}
+          {post.mainImage && (
+            <div className="relative mb-12 md:mb-16 group">
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl pointer-events-none" />
+              <div className="relative aspect-[16/9] rounded-2xl overflow-hidden border border-border shadow-[var(--shadow-blog-image)]">
+                <Image
+                  src={urlFor(post.mainImage).url()}
+                  fill
+                  alt={post.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                />
+              </div>
+              {/* Decorative corner accent */}
+              <div className="absolute -top-3 -right-3 w-24 h-24 bg-gradient-to-br from-primary/10 to-transparent rounded-full blur-2xl" />
+              <div className="absolute -bottom-3 -left-3 w-32 h-32 bg-gradient-to-tr from-primary/5 to-transparent rounded-full blur-3xl" />
+            </div>
+          )}
+
+          {/* Article Content */}
+          <div className="relative">
+            {/* Decorative line accent */}
+            <div className="absolute left-0 top-0 w-1 h-32 bg-gradient-to-b from-primary to-transparent rounded-full" />
+
+            <div className="blog-content pl-8">
+              <PortableText value={content} />
             </div>
           </div>
 
-          <div className="mt-8">
-            <div className="prose prose-invert max-w-none leading-relaxed text-pretty">
-              {post.content}
-            </div>
-          </div>
-
-          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="rounded-lg border p-4">
-              {prevPost ? (
-                <Link
-                  href={`/blog/${prevPost.slug}`}
-                  className="block hover:underline"
-                >
-                  ← Previous: {prevPost.title}
-                </Link>
-              ) : (
-                <span className="text-muted-foreground">No previous post</span>
-              )}
-            </div>
-            <div className="rounded-lg border p-4 text-right">
-              {nextPost ? (
-                <Link
-                  href={`/blog/${nextPost.slug}`}
-                  className="block hover:underline"
-                >
-                  Next: {nextPost.title} →
-                </Link>
-              ) : (
-                <span className="text-muted-foreground">No next post</span>
-              )}
-            </div>
-          </div>
-
-          <div className="mt-12">
-            <h3 className="text-xl font-semibold">Related Posts</h3>
-            <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {allPosts
-                .filter((p) => p.slug !== post.slug)
-                .slice(0, 3)
-                .map((related) => (
-                  <Link
-                    key={related.slug}
-                    href={`/blog/${related.slug}`}
-                    className="group rounded-xl border overflow-hidden hover:shadow-lg transition-shadow"
-                  >
-                    <div className="relative aspect-[16/10]">
-                      <Image
-                        src={related.image}
-                        alt={related.title}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <div className="p-4">
-                      <h4 className="font-medium group-hover:text-accent line-clamp-2">
-                        {related.title}
-                      </h4>
-                      <p className="text-sm text-muted-foreground mt-1 line-clamp-2">
-                        {related.shortDescription}
-                      </p>
-                    </div>
-                  </Link>
-                ))}
+          {/* Bottom decoration */}
+          <div className="mt-16 pt-12 border-t border-border">
+            <div className="flex items-center justify-center gap-3 text-sm text-muted-foreground">
+              <div className="h-px w-12 bg-gradient-to-r from-transparent to-border" />
+              <span>End of article</span>
+              <div className="h-px w-12 bg-gradient-to-l from-transparent to-border" />
             </div>
           </div>
         </div>

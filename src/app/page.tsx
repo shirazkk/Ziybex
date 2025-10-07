@@ -5,20 +5,23 @@ import { FeaturedProjects } from "@/components/Featureprojects";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import Testimonials from "@/components/Testimonials";
-import VideoSection from "@/components/video";
+import VideoSection, { VideoSkeleton } from "@/components/video";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import BlogsSection from "@/components/blogs";
+import { Suspense } from "react";
 
 export default function Home() {
   return (
     <div className="min-h-screen scroll-smooth overflow-x-hidden">
       <Hero />
-      <VideoSection />
+      <Suspense fallback={<VideoSkeleton />}>
+        <VideoSection />
+      </Suspense>
       <Services />
       <About />
       <WhyChooseUs />
-      <FeaturedProjects/>
-      <BlogsSection/>
+      <FeaturedProjects />
+      <BlogsSection />
       <Testimonials />
       <Contact />
     </div>
