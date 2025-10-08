@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { ProjectCard } from "@/components/projectcard";
 import { projects } from "@/data/project";
-import { ArrowLeft, ExternalLink } from "lucide-react";
+import {ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 

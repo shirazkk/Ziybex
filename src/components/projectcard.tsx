@@ -28,7 +28,7 @@ export const ProjectCard = ({ project, index }: ProjectCardProps) => {
       target="_blank"
       rel="noopener noreferrer"
       variants={itemVariants}
-      className="group relative overflow-hidden rounded-2xl aspect-[3/2] cursor-pointer block"
+      className="group relative overflow-hidden rounded-2xl aspect-[9/8] sm:aspect-[16/10] cursor-pointer block"
     >
       {/* Project Image */}
       <div className="absolute inset-0">
