@@ -1,10 +1,12 @@
-"use client";
 import { Canvas } from "@react-three/fiber";
 import { useGLTF, OrbitControls, Environment } from "@react-three/drei";
 import { Suspense } from "react";
 
 function LogoModel() {
-  const { scene } = useGLTF("/ziybex_3d_logo.glb");
+  // ✅ Use your hosted Vercel Blob URL here
+  const { scene } = useGLTF(
+    "https://mkvt5vvvhjh9ofgz.public.blob.vercel-storage.com/ziybex_3d_logo.glb"
+  );
   return <primitive object={scene} scale={2.6} />;
 }
 
@@ -32,5 +34,7 @@ export default function Logo3D() {
   );
 }
 
-// Preload the model
-useGLTF.preload("/ziybex_3d_logo.glb");
+// ✅ Preload your hosted file (for faster caching)
+useGLTF.preload(
+  "https://mkvt5vvvhjh9ofgz.public.blob.vercel-storage.com/ziybex_3d_logo.glb"
+);

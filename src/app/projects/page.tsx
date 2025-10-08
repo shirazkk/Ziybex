@@ -25,29 +25,6 @@ const Projects = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="border-b border-border">
-        <div className="container mx-auto px-4 md:px-6 py-6">
-          <div className="flex items-center justify-between">
-            <Link href="/">
-              <Button variant="ghost" size="sm" className="gap-2">
-                <ArrowLeft className="w-4 h-4" />
-                Back to Home
-              </Button>
-            </Link>
-            <a
-              href="https://www.behance.net/ShaziDzins"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
-            >
-              <span>View on Behance</span>
-              <ExternalLink className="w-4 h-4" />
-            </a>
-          </div>
-        </div>
-      </header>
-
       {/* Main Content */}
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
@@ -93,7 +70,7 @@ const Projects = () => {
                 Like what you see?
               </h2>
               <p className="text-muted-foreground mb-6">
-                I&apos;m available for freelance projects and full-time
+                we are available for freelance projects and full-time
                 opportunities. Let&apos;s create something amazing together!
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">

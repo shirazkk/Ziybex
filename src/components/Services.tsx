@@ -1,60 +1,14 @@
-'use client'
+"use client";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import {
-  Share2,
-  Palette,
-  Search,
-  Globe,
-  MousePointerClick,
-  Film,
-} from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { services } from "@/data/services";
 
 const Services = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
-
-  const services = [
-    {
-      icon: Share2,
-      title: "Social Media Marketing",
-      description:
-        "Build your brand presence across all social platforms with engaging content and strategic campaigns that drive results.",
-    },
-    {
-      icon: Palette,
-      title: "Branding & Creative Design",
-      description:
-        "Create a memorable brand identity with stunning visuals, logos, and design systems that resonate with your audience.",
-    },
-    {
-      icon: Search,
-      title: "SEO Optimization",
-      description:
-        "Boost your search rankings and organic traffic with proven SEO strategies that put your business on the map.",
-    },
-    {
-      icon: Globe,
-      title: "Website Design & Development",
-      description:
-        "Build fast, responsive, and beautiful websites that convert visitors into customers with modern technologies.",
-    },
-    {
-      icon: MousePointerClick,
-      title: "PPC & Google Ads",
-      description:
-        "Maximize your ROI with targeted advertising campaigns that reach the right audience at the right time.",
-    },
-    {
-      icon: Film,
-      title: "2D & 3D Animation",
-      description:
-        "Bring your ideas to life with captivating animations that engage and inspire your audience.",
-    },
-  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -96,14 +50,12 @@ const Services = () => {
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 border border-accent/20 rounded-full text-accent text-sm font-medium mb-6">
             <span>Our Services</span>
           </div>
-          <h2
-            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
-            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-          >
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             What We Offer
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Comprehensive digital solutions tailored to elevate your brand and drive growth
+            Comprehensive digital solutions tailored to elevate your brand and
+            drive growth
           </p>
         </motion.div>
 
@@ -126,7 +78,9 @@ const Services = () => {
                 <h3 className="text-xl font-bold mb-4 group-hover:text-accent transition-smooth">
                   {service.title}
                 </h3>
-                <p className="text-muted-foreground leading-relaxed">{service.description}</p>
+                <p className="text-muted-foreground leading-relaxed">
+                  {service.description}
+                </p>
               </Card>
             </motion.div>
           ))}

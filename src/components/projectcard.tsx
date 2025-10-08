@@ -1,9 +1,8 @@
-'use client'
+"use client";
 import { Project } from "@/data/project";
 import { motion } from "framer-motion";
 import { ExternalLink, Eye, Heart } from "lucide-react";
 import Image from "next/image";
-
 
 interface ProjectCardProps {
   project: Project;
@@ -29,25 +28,29 @@ export const ProjectCard = ({ project, index }: ProjectCardProps) => {
       target="_blank"
       rel="noopener noreferrer"
       variants={itemVariants}
-      className="group relative overflow-hidden rounded-2xl aspect-[4/3] cursor-pointer block"
+      className="group relative overflow-hidden rounded-2xl aspect-[3/2] cursor-pointer block"
     >
       {/* Project Image */}
       <div className="absolute inset-0">
         <Image
           src={project.imageUrl}
           fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           alt={project.title}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          className="w-full h-full  object-cover transition-transform duration-500 group-hover:scale-110"
         />
       </div>
 
+      {/* Persistent Black Overlay */}
+      <div className="absolute inset-0 bg-black/40" />
+
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300" />
 
       {/* Content */}
       <div className="relative h-full flex flex-col justify-end p-6">
-        <div className="transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-          <div className="text-sm font-medium text-white/80 mb-2">
+        <div className=" transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+          <div className=" text-sm font-medium text-white/80 mb-2">
             {project.category}
           </div>
           <h3 className="text-xl md:text-2xl font-bold text-white mb-2">

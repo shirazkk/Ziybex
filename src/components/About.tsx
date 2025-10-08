@@ -11,10 +11,10 @@ const About = () => {
   });
 
   const stats = [
-    { number: 500, suffix: "+", label: "Projects Completed" },
-    { number: 300, suffix: "+", label: "Happy Clients" },
-    { number: 5, suffix: "+", label: "Years in Business" },
-    { number: 25, suffix: "+", label: "Team Members" },
+    { number: 22, suffix: "+", label: "Projects Completed" },
+    { number: 50, suffix: "+", label: "Happy Clients" },
+    { number: 4, suffix: "+", label: "Years in Business" },
+    { number: 5, suffix: "+", label: "Team Members" },
   ];
 
   return (
@@ -32,10 +32,10 @@ const About = () => {
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <Image
                 src="/about-image.jpg"
-                width={300}
-                height={300}
+                width="400"
+                height="400"
                 alt="Ziybex team collaboration"
-                className="w-full h-auto"
+                className="w-full h-full"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
             </div>
@@ -47,7 +47,7 @@ const About = () => {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="absolute -bottom-8 -right-8 bg-card p-6 rounded-xl shadow-xl border border-border"
             >
-              <div className="text-4xl font-bold text-accent mb-2">5+</div>
+              <div className="text-4xl font-bold text-accent mb-2">4+</div>
               <div className="text-sm text-muted-foreground">
                 Years of Excellence
               </div>
@@ -64,25 +64,22 @@ const About = () => {
               <span>About Us</span>
             </div>
 
-            <h2
-              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
-              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-            >
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               Who We Are
             </h2>
 
             <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-              At Ziybex Solutions, we&apos;re not just a digital agency – we&apos;re your
-              strategic partner in growth. With over 5 years of experience,
-              we&apos;ve helped hundreds of businesses transform their digital
-              presence and achieve remarkable results.
+              At Ziybex Solutions, we&apos;re not just a marketing agency –
+              we&apos;re your strategic partner in growth. With over 4+ years of
+              experience, we&apos;ve helped hundreds of businesses transform
+              their digital presence and achieve remarkable results.
             </p>
 
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
               Our team of creative designers, strategic marketers, and skilled
-              developers work together to deliver solutions that don&apos;t just look
-              good – they drive real business outcomes. We believe in the power
-              of innovation, creativity, and data-driven strategies.
+              developers work together to deliver solutions that don&apos;t just
+              look good – they drive real business outcomes. We believe in the
+              power of innovation, creativity, and data-driven strategies.
             </p>
 
             {/* Stats Grid */}
