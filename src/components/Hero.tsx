@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import Logo3D from "./Logo3D";
+import Image from "next/image";
 
 const Hero = () => {
   const scrollToSection = (id: string) => {
@@ -67,8 +67,15 @@ const Hero = () => {
           animate={{ opacity: 1, scale: 1 }}
           className="flex-1 flex justify-center"
         >
-          <div className="flex items-center justify-center">
-            <Logo3D />
+          <div className="flex  items-center justify-center">
+            <Image
+              src="/ziybex_logo1.png"
+              width={500}
+              height={500}
+              alt="Ziybex Logo"
+              priority
+              className="w-[500px] h-auto"
+            />
           </div>
         </motion.div>
       </div>
