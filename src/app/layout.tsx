@@ -96,9 +96,49 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="index, follow" />
         <link rel="canonical" href="https://ziybex.com" />
 
+        {/* Favicon & Apple Touch Icon */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://ziybex.com" />
+        <meta
+          property="og:title"
+          content="Ziybex | Creative Marketing Agency Karachi"
+        />
+        <meta
+          property="og:description"
+          content="Ziybex is a creative marketing agency offering modern web design, branding, and SEO solutions for digital growth."
+        />
+        <meta property="og:image" content="https://ziybex.com/ZS.jpg" />
+        <meta property="og:site_name" content="Ziybex" />
+        <meta property="og:locale" content="en_US" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:title"
+          content="Ziybex | Creative Marketing Agency Karachi"
+        />
+        <meta
+          name="twitter:description"
+          content="Ziybex is a creative marketing agency providing web design, branding, and SEO solutions to help your business grow online."
+        />
+        <meta name="twitter:image" content="https://ziybex.com/ZS.jpg" />
+        <meta name="twitter:site" content="@ziybex" />
+        <meta name="twitter:creator" content="@ziybex" />
+
+        {/* JSON-LD Structured Data */}
         <Script
           id="ld-org"
           type="application/ld+json"
@@ -110,6 +150,10 @@ export default function RootLayout({
               name: "Ziybex",
               url: "https://ziybex.com",
               logo: "https://ziybex.com/favicon.ico",
+              founder: {
+                "@type": "Person",
+                name: "Shahzaib Usman",
+              },
               sameAs: [
                 "https://facebook.com/ziybex",
                 "https://www.linkedin.com/company/ziybex",
@@ -119,9 +163,14 @@ export default function RootLayout({
                 "@type": "ContactPoint",
                 telephone: "+923171875753",
                 email: "ziybix@gmail.com",
-                location: "Karachi, Sindh",
                 contactType: "customer service",
                 areaServed: "PK",
+                availableLanguage: ["English"],
+              },
+              brand: {
+                "@type": "Brand",
+                name: "Ziybex",
+                logo: "https://ziybex.com/favicon.ico",
               },
             }),
           }}
@@ -145,7 +194,6 @@ export default function RootLayout({
             }),
           }}
         />
-
         <Script
           id="ld-service"
           type="application/ld+json"
@@ -175,7 +223,8 @@ export default function RootLayout({
               },
               address: {
                 "@type": "PostalAddress",
-                location: "https://maps.app.goo.gl/JvMEZK97mHGyERQ89",
+                addressLocality: "Karachi",
+                addressRegion: "Sindh",
                 addressCountry: "PK",
               },
             }),

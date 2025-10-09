@@ -1,16 +1,19 @@
-'use client'
+"use client";
 import { motion } from "framer-motion";
+import { Facebook, Instagram, Linkedin } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const footerLinks = {
-    Company: ["About Us", "Our Services", "Portfolio", "Testimonials"],
+    Company: ["About Us", "Our Services", "Portfolio", "Blogs"],
     Services: [
       "Social Media Marketing",
-      "Branding & Design",
-      "Web Development",
+      "Branding & Creative Design",
       "SEO Optimization",
+      "Web Design & Development",
+      "PPC & Google Ads",
+      "2D & 3D Animation",
     ],
     Support: ["Contact Us", "FAQ", "Privacy Policy", "Terms of Service"],
   };
@@ -20,7 +23,7 @@ const Footer = () => {
       "About Us": "#about",
       "Our Services": "#services",
       Portfolio: "#portfolio",
-      Testimonials: "#testimonials",
+      Blogs: "#blogs",
       "Contact Us": "#contact",
     };
 
@@ -31,6 +34,12 @@ const Footer = () => {
         element.scrollIntoView({ behavior: "smooth" });
       }
     }
+  };
+
+  const pageLinks: { [key: string]: string } = {
+    FAQ: "/faq",
+    "Privacy Policy": "/privacy-policy",
+    "Terms of Service": "/terms-of-service",
   };
 
   return (
@@ -45,27 +54,42 @@ const Footer = () => {
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
             >
-              <h3
-                className="font-bold text-3xl mb-4"
-                style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-              >
+              <h3 className="font-bold text-3xl mb-4">
                 Ziybex<span className="text-accent">.</span>
               </h3>
               <p className="text-primary-foreground/80 mb-6 leading-relaxed max-w-md">
-                Transforming businesses through innovative digital solutions. We help brands grow,
-                connect, and stand out in the digital landscape.
+                Transforming businesses through innovative digital solutions. We
+                help brands grow, connect, and stand out in the digital
+                landscape.
               </p>
               <div className="flex gap-4">
-                {["F", "T", "I", "L"].map((letter, index) => (
-                  <a
-                    key={index}
-                    href="#"
-                    className="w-10 h-10 bg-primary-foreground/10 rounded-lg flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-smooth"
-                    aria-label={`Social media link ${letter}`}
-                  >
-                    <span className="font-bold">{letter}</span>
-                  </a>
-                ))}
+                <a
+                  href="https://facebook.com/ziybex"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-primary-foreground/10 rounded-lg flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-smooth"
+                  aria-label="Facebook"
+                >
+                  <Facebook />
+                </a>
+                <a
+                  href="https://instagram.com/ziybex"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-primary-foreground/10 rounded-lg flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-smooth"
+                  aria-label="Instagram"
+                >
+                  <Instagram />
+                </a>
+                <a
+                  href="https://www.linkedin.com/company/ziybex"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-primary-foreground/10 rounded-lg flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-smooth"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin />
+                </a>
               </div>
             </motion.div>
           </div>
@@ -83,12 +107,21 @@ const Footer = () => {
               <ul className="space-y-3">
                 {links.map((link) => (
                   <li key={link}>
-                    <button
-                      onClick={() => scrollToSection(link)}
-                      className="text-primary-foreground/70 hover:text-accent transition-smooth cursor-pointer text-left"
-                    >
-                      {link}
-                    </button>
+                    {pageLinks[link] ? (
+                      <a
+                        href={pageLinks[link]}
+                        className="text-primary-foreground/70 hover:text-accent transition-smooth text-left block"
+                      >
+                        {link}
+                      </a>
+                    ) : (
+                      <button
+                        onClick={() => scrollToSection(link)}
+                        className="text-primary-foreground/70 hover:text-accent transition-smooth cursor-pointer text-left"
+                      >
+                        {link}
+                      </button>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -102,26 +135,6 @@ const Footer = () => {
             <p className="text-primary-foreground/70 text-sm">
               © {currentYear} Ziybex Solutions. All rights reserved.
             </p>
-            <div className="flex gap-6 text-sm">
-              <a
-                href="#"
-                className="text-primary-foreground/70 hover:text-accent transition-smooth"
-              >
-                Privacy Policy
-              </a>
-              <a
-                href="#"
-                className="text-primary-foreground/70 hover:text-accent transition-smooth"
-              >
-                Terms of Service
-              </a>
-              <a
-                href="#"
-                className="text-primary-foreground/70 hover:text-accent transition-smooth"
-              >
-                Cookie Policy
-              </a>
-            </div>
           </div>
         </div>
       </div>
