@@ -4,12 +4,18 @@ module.exports = {
   generateRobotsTxt: true,
   sitemapSize: 7000,
   changefreq: 'weekly',
-  priority: 0.7,
-  exclude: ['/studio/*'],
+  priority: 0.8,
+  exclude: ['/studio/*', '/private/*', '/admin/*'], // exclude non-public areas
   robotsTxtOptions: {
     policies: [
-      { userAgent: '*', allow: '/' },
-      { userAgent: '*', disallow: ['/studio'] },
+      {
+        userAgent: '*',
+        allow: '/',
+        disallow: ['/studio', '/private', '/admin'],
+      },
+    ],
+    additionalSitemaps: [
+      'https://ziybex.com/sitemap.xml', // main sitemap
     ],
   },
 };

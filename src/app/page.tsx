@@ -10,6 +10,49 @@ import BlogsSection from "@/components/blogs";
 import { Suspense } from "react";
 import ClientReviews from "@/components/ClientReviews";
 
+export const metadata: Metadata = {
+  title: "Ziybex | Creative Marketing Agency karachi",
+  description:
+    "Ziybex is a creative marketing agency specializing in web design, branding, SEO, and digital marketing to help businesses grow online.",
+  keywords: [
+    "Ziybex",
+    "creative marketing agency",
+    "web design company",
+    "SEO services",
+    "branding agency",
+    "digital marketing",
+    "creative agency Pakistan",
+    "Next.js web development",
+    "UI UX design",
+  ],
+  alternates: {
+    canonical: "https://ziybex.com/",
+  },
+  openGraph: {
+    title: "Ziybex | Creative Marketing Agency karachi",
+    description:
+      "Ziybex is a creative marketing agency specializing in modern web design, branding, and SEO solutions that help businesses grow online.",
+    url: "https://ziybex.com/",
+    siteName: "Ziybex",
+    images: [
+      {
+        url: "/ZS.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Ziybex - Creative Marketing Agency karachi",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ziybex | Creative Marketing Agency karachi",
+    description:
+      "Ziybex is a creative marketing agency offering web design, branding, and SEO services to boost your business growth online.",
+    images: ["/ZS.jpg"],
+  },
+};
+
 export default function Home() {
   return (
     <div className="min-h-screen scroll-smooth overflow-x-hidden">
@@ -27,29 +70,3 @@ export default function Home() {
     </div>
   );
 }
-
-export const metadata: Metadata = {
-  title: "Ziybex | Creative Web Solutions",
-  description:
-    "Ziybex is a modern creative digital studio offering web design, development, and branding solutions.",
-  alternates: {
-    canonical: "/",
-  },
-  openGraph: {
-    title: "Ziybex | Creative Web Solutions",
-    description:
-      "Ziybex is a modern creative digital studio offering web design, development, and branding solutions.",
-    url: "https://ziybex.com/",
-    images: [
-      {
-        url: "/ZB-Website Banner.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Ziybex - Creative Web Solutions",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-  },
-};

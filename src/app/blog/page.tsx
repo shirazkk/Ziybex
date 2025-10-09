@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { allPostsQuery } from "@/sanity/queries";
@@ -30,8 +30,12 @@ export default function BlogIndexPage() {
         transition={{ duration: 0.6 }}
         className="text-center max-w-2xl mx-auto"
       >
-        <h1 className="text-balance text-4xl md:text-5xl lg:text-6xl font-bold mb-4 tracking-tight">All Blogs</h1>
-        <p className="text-pretty text-muted-foreground">Explore all articles and updates from our creative team.</p>
+        <h1 className="text-balance text-4xl md:text-5xl lg:text-6xl font-bold mb-4 tracking-tight">
+          All Blogs
+        </h1>
+        <p className="text-pretty text-muted-foreground">
+          Explore all articles and updates from our creative team.
+        </p>
       </motion.div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mt-10">
@@ -58,7 +62,9 @@ export default function BlogIndexPage() {
                 )}
               </div>
               <div className="p-4">
-                <h3 className="text-lg md:text-xl font-semibold line-clamp-2">{post.title}</h3>
+                <h3 className="text-lg md:text-xl font-semibold line-clamp-2">
+                  {post.title}
+                </h3>
                 <p className="text-sm text-muted-foreground mt-2 line-clamp-2">
                   {post.shortDescription}
                 </p>
@@ -76,5 +82,3 @@ export default function BlogIndexPage() {
     </div>
   );
 }
-
-

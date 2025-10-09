@@ -6,6 +6,13 @@
 All colors MUST be HSL.
 */
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-product-sans), sans-serif;
+}
 
 @layer base {
   :root {
@@ -91,9 +98,7 @@ All colors MUST be HSL.
       "calt" 1;
   }
 
-  html {
-    scroll-behavior: smooth;
-  }
+
 }
 
 @layer utilities {
@@ -173,7 +178,6 @@ All colors MUST be HSL.
 .navbar-slide {
   animation: slideDown 0.6s ease-out forwards;
 }
-
 
 /* hero section animation */
 
