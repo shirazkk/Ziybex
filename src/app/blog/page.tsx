@@ -23,14 +23,14 @@ export default function BlogIndexPage() {
   }, []);
 
   return (
-    <div className="container mx-auto px-4 md:px-0 py-16 md:py-24">
+    <div className="container mx-auto px-4 md:px-0 py-16 md:py-32">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         className="text-center max-w-2xl mx-auto"
       >
-        <h1 className="text-balance text-4xl md:text-5xl lg:text-6xl font-bold mb-4 tracking-tight">
+        <h1 className="font-heading text-balance text-4xl md:text-5xl lg:text-6xl font-bold mb-4 tracking-tight">
           All Blogs
         </h1>
         <p className="text-pretty text-muted-foreground">
@@ -38,7 +38,7 @@ export default function BlogIndexPage() {
         </p>
       </motion.div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mt-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mt-10 px-3">
         {posts.map((post, idx) => (
           <motion.article
             key={post.slug}

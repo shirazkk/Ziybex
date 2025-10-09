@@ -52,7 +52,7 @@ export default function BlogsSection() {
         viewport={{ once: true, amount: 0.3 }}
         className="text-center max-w-2xl mx-auto"
       >
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+        <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
           Our Latest Blogs
         </h2>
         <p className="text-muted-foreground mt-3">

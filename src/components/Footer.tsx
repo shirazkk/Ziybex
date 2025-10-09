@@ -54,7 +54,7 @@ const Footer = () => {
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
             >
-              <h3 className="font-bold text-3xl mb-4">
+              <h3 className="font-bold font-heading text-3xl mb-4">
                 Ziybex<span className="text-accent">.</span>
               </h3>
               <p className="text-primary-foreground/80 mb-6 leading-relaxed max-w-md">
@@ -103,7 +103,7 @@ const Footer = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <h4 className="font-bold text-lg mb-4">{title}</h4>
+              <h4 className="font-bold text-lg mb-4 font-heading">{title}</h4>
               <ul className="space-y-3">
                 {links.map((link) => (
                   <li key={link}>

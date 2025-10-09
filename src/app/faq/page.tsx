@@ -63,11 +63,11 @@ const faqData = [
 
 export default function FAQ() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-background to-secondary/20">
+    <main className="h-auto bg-gradient-to-b from-background to-secondary/20">
       {/* Hero Section */}
       <section className="relative px-6 pt-32 pb-16 text-center">
         <div className="mx-auto max-w-4xl">
-          <h1 className="mb-4 text-5xl font-bold tracking-tight md:text-6xl">
+          <h1 className="mb-4 text-5xl font-bold tracking-tight md:text-6xl font-heading">
             Frequently Asked <span className="text-primary">Questions</span>
           </h1>
           <p className="text-lg text-muted-foreground md:text-xl">
@@ -95,7 +95,7 @@ export default function FAQ() {
                 <AccordionTrigger className="py-5 text-left text-lg font-semibold hover:text-primary">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="pb-5 text-base text-muted-foreground">
+                <AccordionContent className="font-paragraph pb-5 text-base text-muted-foreground">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
@@ -104,7 +104,7 @@ export default function FAQ() {
 
           {/* Contact CTA */}
           <div className="mt-16 rounded-xl bg-gradient-to-r from-primary/10 to-accent/10 p-8 text-center">
-            <h2 className="mb-4 text-2xl font-bold">Still Have Questions?</h2>
+            <h2 className="mb-4 text-2xl font-bold font-heading">Still Have Questions?</h2>
             <p className="mb-6 text-muted-foreground">
               Can&apos;t find the answer you&apos;re looking for? Get in touch with our
               team.

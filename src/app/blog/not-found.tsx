@@ -6,7 +6,7 @@ export default function NotFound() {
       <p className="text-sm uppercase tracking-widest text-muted-foreground">
         Error 404
       </p>
-      <h1 className="text-4xl font-bold sm:text-5xl">Blog not found</h1>
+      <h1 className="text-4xl font-bold sm:text-5xl font-heading">Blog not found</h1>
       <p className="max-w-prose text-muted-foreground">
         Sorry, we couldn&apos;t find the blog you&apos;re looking for. It may
         have been moved or deleted.

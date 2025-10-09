@@ -18,11 +18,15 @@ export default function BlogDetail({ post }: { post: BlogDetailPost }) {
   };
 
   const authorName: string =
-    typeof post.author === "string" ? post.author : post.author?.name ?? "Unknown";
-  const content: TypedObject[] = Array.isArray(post.content) ? post.content : [];
+    typeof post.author === "string"
+      ? post.author
+      : (post.author?.name ?? "Unknown");
+  const content: TypedObject[] = Array.isArray(post.content)
+    ? post.content
+    : [];
 
   return (
-    <article className="min-h-screen bg-background">
+    <article className="h-auto bg-background">
       {/* Hero Section with gradient background */}
       <div className="relative bg-gradient-to-b from-blog-accent-subtle to-background">
         <div className="container mx-auto px-4 md:px-6 pt-16 md:pt-24 pb-8 md:pb-12">
@@ -36,7 +40,7 @@ export default function BlogDetail({ post }: { post: BlogDetailPost }) {
             </div>
 
             {/* Title */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-tight mb-8">
+            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-tight mb-8">
               {post.title}
             </h1>
 
@@ -47,7 +51,9 @@ export default function BlogDetail({ post }: { post: BlogDetailPost }) {
                   <User className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <div className="font-medium text-foreground">{authorName}</div>
+                  <div className="font-medium text-foreground">
+                    {authorName}
+                  </div>
                   <div className="text-xs">Author</div>
                 </div>
               </div>
@@ -91,7 +97,7 @@ export default function BlogDetail({ post }: { post: BlogDetailPost }) {
             {/* Decorative line accent */}
             <div className="absolute left-0 top-0 w-1 h-32 bg-gradient-to-b from-primary to-transparent rounded-full" />
 
-            <div className="blog-content pl-8">
+            <div className="prose pl-8">
               <PortableText value={content} />
             </div>
           </div>

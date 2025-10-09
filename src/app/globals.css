@@ -6,12 +6,18 @@
 All colors MUST be HSL.
 */
 
-html {
-  scroll-behavior: smooth;
+:root {
+  --font-paragraph: var(--font-montserrat);
 }
 
-body {
-  font-family: var(--font-product-sans), sans-serif;
+p,
+small,
+a {
+  font-family: var(--font-paragraph);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 @layer base {
@@ -97,8 +103,6 @@ body {
       "rlig" 1,
       "calt" 1;
   }
-
-
 }
 
 @layer utilities {

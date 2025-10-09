@@ -49,7 +49,7 @@ const WhyChooseUs = () => {
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 border border-accent/20 rounded-full text-accent text-sm font-medium mb-6">
             <span>Why Choose Us</span>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+          <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             What Sets Us Apart
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -79,7 +79,7 @@ const WhyChooseUs = () => {
                   </div>
                 </div>
 
-                <h3 className="text-2xl font-bold mb-4 group-hover:text-accent transition-smooth">
+                <h3 className="font-heading text-2xl font-bold mb-4 group-hover:text-accent transition-smooth">
                   {feature.title}
                 </h3>
 

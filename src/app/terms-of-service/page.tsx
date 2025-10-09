@@ -58,7 +58,7 @@ export default function TermsOfService() {
       {/* Hero Section */}
       <section className="relative px-6 pt-32 pb-16 text-center">
         <div className="mx-auto max-w-4xl">
-          <h1 className="mb-4 text-5xl font-bold tracking-tight md:text-6xl">
+          <h1 className="mb-4 text-5xl font-bold tracking-tight md:text-6xl font-heading">
             Terms of <span className="text-primary">Service</span>
           </h1>
           <p className="text-lg text-muted-foreground md:text-xl">
@@ -94,7 +94,7 @@ export default function TermsOfService() {
               key={index}
               className="rounded-xl border bg-card p-8 shadow-sm transition-shadow hover:shadow-md"
             >
-              <h2 className="mb-4 text-2xl font-bold text-foreground">
+              <h2 className="mb-4 text-2xl font-bold text-foreground font-heading">
                 {section.title}
               </h2>
               <p className="text-base leading-relaxed text-muted-foreground">
@@ -109,7 +109,7 @@ export default function TermsOfService() {
       <section className="px-6 pb-32">
         <div className="mx-auto max-w-4xl">
           <div className="rounded-xl bg-gradient-to-r from-primary/10 to-accent/10 p-8 text-center">
-            <h2 className="mb-4 text-2xl font-bold">
+            <h2 className="mb-4 text-2xl font-bold font-heading">
               Questions About Our Terms?
             </h2>
             <p className="mb-6 text-muted-foreground">

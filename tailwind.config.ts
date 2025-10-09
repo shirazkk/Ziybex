@@ -15,7 +15,8 @@ export default {
     extend: {
       fontFamily: {
         sans: ["Inter", "sans-serif"],
-        heading: ["Space Grotesk", "sans-serif"],
+        heading: ['var(--font-transforma-mix-medium)', 'sans-serif'],
+        paragraph: ["var(--font-montserrat)", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -108,5 +109,5 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 } satisfies Config;

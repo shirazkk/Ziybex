@@ -1,15 +1,33 @@
 import type { Metadata, Viewport } from "next";
-import { Georama } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
+import localFont from "next/font/local";
 
-const georama = Georama({
-  variable: "--font-product-sans",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+const transformaMixMedium = localFont({
+  src: [
+    {
+      path: "/fonts/TransformaMixMedium.woff2",
+      weight: "500", // Medium weight
+      style: "normal",
+    },
+  ],
+  display: "swap", // Recommended for better user experience
+  variable: "--font-transforma-mix-medium",
+});
+
+const montserrat = localFont({
+  src: [
+    {
+      path: "/fonts/MontserratItalicVariableFont.woff2",
+      style: "italic",
+      weight: "400", // normal weight for paragraphs
+    },
+  ],
+  display: "swap",
+  variable: "--font-montserrat",
 });
 
 export const metadata: Metadata = {
@@ -93,7 +111,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className={`${transformaMixMedium.variable} ${montserrat.variable}`}
+    >
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -232,7 +253,7 @@ export default function RootLayout({
         />
       </head>
 
-      <body className={`${georama.variable} antialiased`}>
+      <body>
         <Navbar />
         {children}
         <Analytics />

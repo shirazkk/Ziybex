@@ -39,7 +39,7 @@ export const FeaturedProjects = () => {
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 border border-accent/20 rounded-full text-accent text-sm font-medium mb-6">
             <span>Featured Work</span>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+          <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             Portfolio & Case Studies
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">

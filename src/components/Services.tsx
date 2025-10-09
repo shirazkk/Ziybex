@@ -50,7 +50,7 @@ const Services = () => {
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 border border-accent/20 rounded-full text-accent text-sm font-medium mb-6">
             <span>Our Services</span>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-heading">
             What We Offer
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -75,7 +75,7 @@ const Services = () => {
                   </div>
                   <div className="absolute inset-0 bg-accent/5 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-smooth" />
                 </div>
-                <h3 className="text-xl font-bold mb-4 group-hover:text-accent transition-smooth">
+                <h3 className="font-heading text-xl font-bold mb-4 group-hover:text-accent transition-smooth">
                   {service.title}
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">

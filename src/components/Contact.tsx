@@ -128,8 +128,7 @@ const Contact = () => {
             <span>Get In Touch</span>
           </div>
           <h2
-            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
-            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-heading"
           >
             Let&apos;s Start Your Project
           </h2>
@@ -148,7 +147,7 @@ const Contact = () => {
             className="space-y-8"
           >
             <div>
-              <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
+              <h3 className="text-2xl font-bold mb-6 ">Contact Information</h3>
               <p className="text-muted-foreground mb-8 leading-relaxed">
                 Fill out the form and our team will get back to you within 24
                 hours. You can also reach us directly through any of the
