@@ -9,4 +9,4 @@ Disallow: /admin
 Host: https://ziybex.com
 
 # Sitemaps
-Sitemap: https://ziybex.com/sitemap.xml
+Sitemap:  https://ziybex.com/sitemap-0.xml

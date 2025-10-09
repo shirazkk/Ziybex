@@ -91,6 +91,8 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <meta charSet="UTF-8" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://ziybex.com" />
 
         <Script
           id="ld-org"
