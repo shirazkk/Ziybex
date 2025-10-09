@@ -15,7 +15,7 @@ module.exports = {
       },
     ],
     additionalSitemaps: [
-      'https://ziybex.com/sitemap.xml', // main sitemap
+      'https://ziybex.com/sitemap-0.xml', // main sitemap
     ],
   },
 };
