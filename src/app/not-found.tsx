@@ -7,7 +7,7 @@ export default function NotFound() {
       <div className="mx-auto max-w-2xl">
         <div className="mx-auto mb-6 h-14 w-14 overflow-hidden rounded-full border bg-background shadow-sm">
           <Image
-            src="/notfound_ziybex_logo.jpg"
+            src="/ziybex_logo.jpg"
             alt="Ziybex logo"
             width={56}
             height={56}

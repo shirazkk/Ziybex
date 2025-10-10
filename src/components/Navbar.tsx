@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { ModeToggle } from "./ModeToggle";
 
 const navLinks = [
   { name: "Home", href: "#home" },
@@ -58,6 +59,8 @@ export default function Navbar() {
               >
                 <Link href="#contact">Contact Us</Link>
               </Button>
+
+              <ModeToggle />
             </div>
 
             {/* Mobile Menu using ShadCN Sheet */}
@@ -71,7 +74,9 @@ export default function Navbar() {
                   <RxHamburgerMenu />
                 </Button>
               </SheetTrigger>
+
               <SheetContent side="left" className="p-4">
+              <ModeToggle />
                 <div className="flex flex-col gap-4 mt-4">
                   {navLinks.map((link) => (
                     <Link

@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import localFont from "next/font/local";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const transformaMixMedium = localFont({
   src: [
@@ -114,6 +115,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${transformaMixMedium.variable} ${montserrat.variable}`}
+      suppressHydrationWarning
     >
       <head>
         <meta charSet="UTF-8" />
@@ -254,10 +256,17 @@ export default function RootLayout({
       </head>
 
       <body>
-        <Navbar />
-        {children}
-        <Analytics />
-        <Footer />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Navbar />
+          {children}
+          <Analytics />
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { Facebook, Instagram, Linkedin } from "lucide-react";
+import { FaPinterestP } from "react-icons/fa";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -42,6 +43,29 @@ const Footer = () => {
     "Terms of Service": "/terms-of-service",
   };
 
+  const socialLinks = [
+    {
+      name: "Facebook",
+      icon: Facebook,
+      href: "https://facebook.com/ziybex",
+    },
+    {
+      name: "Instagram",
+      icon: Instagram,
+      href: "https://instagram.com/ziybex",
+    },
+    {
+      name: "LinkedIn",
+      icon: Linkedin,
+      href: "https://www.linkedin.com/company/ziybex",
+    },
+    {
+      name: "Pinterest",
+      icon: FaPinterestP,
+      href: "https://www.pinterest.com/ziybex",
+    },
+  ];
+
   return (
     <footer className="bg-primary text-primary-foreground pt-20 pb-8">
       <div className="container mx-auto px-4 md:px-6">
@@ -63,33 +87,18 @@ const Footer = () => {
                 landscape.
               </p>
               <div className="flex gap-4">
-                <a
-                  href="https://facebook.com/ziybex"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-primary-foreground/10 rounded-lg flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-smooth"
-                  aria-label="Facebook"
-                >
-                  <Facebook />
-                </a>
-                <a
-                  href="https://instagram.com/ziybex"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-primary-foreground/10 rounded-lg flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-smooth"
-                  aria-label="Instagram"
-                >
-                  <Instagram />
-                </a>
-                <a
-                  href="https://www.linkedin.com/company/ziybex"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-primary-foreground/10 rounded-lg flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-smooth"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin />
-                </a>
+                {socialLinks.map(({ name, icon: Icon, href }) => (
+                  <a
+                    key={name}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 bg-primary-foreground/10 rounded-lg flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-smooth"
+                    aria-label={name}
+                  >
+                    <Icon className="w-5 h-5" />
+                  </a>
+                ))}
               </div>
             </motion.div>
           </div>

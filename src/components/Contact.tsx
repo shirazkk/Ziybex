@@ -16,6 +16,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import emailjs from "@emailjs/browser";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
+import { FaPinterestP } from "react-icons/fa";
 
 const Contact = () => {
   const [ref, inView] = useInView({
@@ -97,14 +98,14 @@ const Contact = () => {
     {
       icon: Mail,
       label: "Email",
-      value: "ziybix@gmail.com",
-      link: "mailto:ziybix@gmail.com",
+      value: "info@ziybex.com",
+      link: "mailto:info@ziybex.com",
     },
     {
       icon: Phone,
       label: "Phone",
       value: "(+92) 31718 7575 3",
-      link: "tel:+923171875753",
+      link: "https://wa.me/923171875753",
     },
     {
       icon: MapPin,
@@ -127,9 +128,7 @@ const Contact = () => {
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 border border-accent/20 rounded-full text-accent text-sm font-medium mb-6">
             <span>Get In Touch</span>
           </div>
-          <h2
-            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-heading"
-          >
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-heading">
             Let&apos;s Start Your Project
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -202,6 +201,12 @@ const Contact = () => {
                     icon: Linkedin,
                     url: "https://linkedin.com/company/ziybex",
                     color: "hover:text-blue-600",
+                  },
+                  {
+                    name: "Pinterest",
+                    icon: FaPinterestP,
+                    url: "https://www.pinterest.com/ziybex",
+                    color: "hover:text-red-500",
                   },
                 ].map((social) => (
                   <a
