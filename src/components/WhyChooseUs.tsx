@@ -2,7 +2,6 @@
 import { features } from "@/data/feature";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { CounterCard } from "./countercard";
 
 const WhyChooseUs = () => {
   const [ref, inView] = useInView({
@@ -30,13 +29,6 @@ const WhyChooseUs = () => {
       },
     },
   };
-
-  const stats = [
-    { number: 22, suffix: "+", label: "Projects Completed" },
-    { number: 50, suffix: "+", label: "Happy Clients" },
-    { number: 4, suffix: "+", label: "Years in Business" },
-    { number: 5, suffix: "+", label: "Team Members" },
-  ];
 
   return (
     <section className="py-20 md:py-32 relative overflow-hidden">
@@ -100,17 +92,6 @@ const WhyChooseUs = () => {
               <div className="absolute inset-0 bg-accent/5 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-smooth -z-10" />
             </motion.div>
           ))}
-          {/* Stats Grid */}
-          <div className="grid grid-cols-2 gap-6 mb-8 py-2">
-            {stats.map((stat, index) => (
-              <CounterCard
-                key={index}
-                stat={stat}
-                inView={inView}
-                delay={index * 0.1}
-              />
-            ))}
-          </div>
         </motion.div>
       </div>
     </section>
