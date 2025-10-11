@@ -45,7 +45,7 @@ const Hero = () => {
           >
             <Button
               size="lg"
-              className="bg-accent hover:scale-105 hover:bg-accent/90 transition"
+              className="bg-accent dark:text-white hover:scale-105 hover:bg-accent/90 transition"
               onClick={() => scrollToSection("#contact")}
             >
               Get Started <ArrowRight className="ml-2 w-5 h-5" />
@@ -81,11 +81,12 @@ const Hero = () => {
       </div>
 
       {/* Stats */}
-      <div className="mt-0 lg:mt-16 grid grid-cols-3 gap-8 text-center max-w-3xl mx-auto">
+      <div className="mt-0 lg:mt-16 grid grid-cols-4 gap-8 text-center max-w-3xl mx-auto">
         {[
           { number: "22+", label: "Projects Completed" },
           { number: "50+", label: "Happy Clients" },
           { number: "4+", label: "Years Experience" },
+          { number: "4", label: "Team Members" },
         ].map((stat, i) => (
           <motion.div
             key={i}

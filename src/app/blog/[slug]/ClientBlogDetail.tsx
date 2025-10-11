@@ -40,7 +40,7 @@ export default function BlogDetail({ post }: { post: BlogDetailPost }) {
             </div>
 
             {/* Title */}
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-tight mb-8">
+            <h1 className=" font-heading text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-tight mb-8">
               {post.title}
             </h1>
 
@@ -97,7 +97,7 @@ export default function BlogDetail({ post }: { post: BlogDetailPost }) {
             {/* Decorative line accent */}
             <div className="absolute left-0 top-0 w-1 h-32 bg-gradient-to-b from-primary to-transparent rounded-full" />
 
-            <div className="prose pl-8">
+            <div className="prose pl-8 dark:prose-invert">
               <PortableText value={content} />
             </div>
           </div>

@@ -3,6 +3,7 @@ import { postBySlugQuery } from "@/sanity/queries";
 import { client } from "@/sanity/lib/client";
 import ClientBlogDetail from "./ClientBlogDetail";
 import type { Metadata } from "next";
+import { urlFor } from "@/sanity/lib/image";
 
 export async function generateMetadata({
   params,
@@ -38,7 +39,7 @@ export async function generateMetadata({
       siteName: "Ziybex",
       images: [
         {
-          url: post.mainImage?.asset?.url || "/ZS.jpg",
+          url: urlFor(post.mainImage).url() || "/ZS.jpg",
           width: 1200,
           height: 630,
           alt: post.title || "Ziybex Blog - Creative Insights",

@@ -1,8 +1,10 @@
 "use client";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { Button } from "./ui/button";
+import { ArrowRight } from "lucide-react";
 
 const About = () => {
   const [ref, inView] = useInView({
@@ -10,12 +12,7 @@ const About = () => {
     threshold: 0.1,
   });
 
-  const stats = [
-    { number: 22, suffix: "+", label: "Projects Completed" },
-    { number: 50, suffix: "+", label: "Happy Clients" },
-    { number: 4, suffix: "+", label: "Years in Business" },
-    { number: 5, suffix: "+", label: "Team Members" },
-  ];
+
 
   return (
     <section id="about" className="py-20 md:py-32 bg-secondary/30">
@@ -64,87 +61,39 @@ const About = () => {
               <span>About Us</span>
             </div>
 
-            <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               Who We Are
             </h2>
 
             <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-              At Ziybex Solutions, we&apos;re not just a marketing agency –
-              we&apos;re your strategic partner in growth. With over 4+ years of
-              experience, we&apos;ve helped hundreds of businesses transform
-              their digital presence and achieve remarkable results.
+              At Ziybex Solutions, we&apos;re not just a marketing agency – we&apos;re
+              your strategic partner in growth. With over 4+ years of
+              experience, we&apos;ve helped hundreds of businesses transform their
+              digital presence and achieve remarkable results.
             </p>
 
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+            <p className="text-lg text-muted-foreground mb-4 leading-relaxed">
               Our team of creative designers, strategic marketers, and skilled
-              developers work together to deliver solutions that don&apos;t just
-              look good – they drive real business outcomes. We believe in the
-              power of innovation, creativity, and data-driven strategies.
+              developers work together to deliver solutions that don&apos;t just look
+              good – they drive real business outcomes. We believe in the power
+              of innovation, creativity, and data-driven strategies.
             </p>
+            {/* Read More Button */}
+            <Link href="/about">
+              <Button
+                variant="outline"
+                className="border-accent text-accent hover:bg-accent hover:text-accent-foreground group"
+              >
+                Learn More
+                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-smooth" />
+              </Button>
+            </Link>
 
-            {/* Stats Grid */}
-            <div className="grid grid-cols-2 gap-6 mb-8">
-              {stats.map((stat, index) => (
-                <CounterCard
-                  key={index}
-                  stat={stat}
-                  inView={inView}
-                  delay={index * 0.1}
-                />
-              ))}
-            </div>
+          
           </motion.div>
         </div>
       </div>
     </section>
-  );
-};
-
-const CounterCard = ({
-  stat,
-  inView,
-  delay,
-}: {
-  stat: { number: number; suffix: string; label: string };
-  inView: boolean;
-  delay: number;
-}) => {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    if (inView) {
-      let start = 0;
-      const end = stat.number;
-      const duration = 2000;
-      const increment = end / (duration / 16);
-
-      const timer = setInterval(() => {
-        start += increment;
-        if (start >= end) {
-          setCount(end);
-          clearInterval(timer);
-        } else {
-          setCount(Math.floor(start));
-        }
-      }, 16);
-
-      return () => clearInterval(timer);
-    }
-  }, [inView, stat.number]);
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.8 }}
-      animate={inView ? { opacity: 1, scale: 1 } : {}}
-      transition={{ duration: 0.5, delay }}
-      className="bg-card/50 backdrop-blur-sm p-6 rounded-xl border border-border/50 hover:border-accent/50 transition-smooth"
-    >
-      <div className="text-3xl font-bold text-accent mb-2">
-        {count}
-        {stat.suffix}
-      </div>
-      <div className="text-sm text-muted-foreground">{stat.label}</div>
-    </motion.div>
   );
 };
 

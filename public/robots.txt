@@ -2,8 +2,7 @@
 User-agent: *
 Allow: /
 Disallow: /studio
-Disallow: /private
-Disallow: /admin
+
 
 # Host
 Host: https://ziybex.com
